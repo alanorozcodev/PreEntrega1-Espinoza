@@ -1,11 +1,11 @@
 let costoTotal = 0;
 let pagoConTarjeta = 0;
-const seriviciosDentales = [
-    {nombre: "Limpieza", costo: 150},
-    {nombre: "Extraccion", costo: 500},
-    {nombre: "Endodoncia", costo: 1500},
-    {nombre: "Blanquemiento", costo: 450},
-    {nombre: "Carillas", costo: 3000},
+const serviciosDentales = [
+    { nombre: "Limpieza", costo: 150 },
+    { nombre: "Extraccion", costo: 500 },
+    { nombre: "Endodoncia", costo: 1500 },
+    { nombre: "Blanqueamiento", costo: 450 },
+    { nombre: "Carillas", costo: 3000 },
 ];
 const sumaConTarjeta = (a, b) => a + b;
 const comision = x => x * .04;
@@ -21,29 +21,32 @@ Los servicios disponibles son:
 - Carillas`);
 
 while (true) {
-    let servicioSeleccionado = prompt("Ingresa el servicio que necesitas sin acentos (o escribe 'listo' para finalizar):").toLowerCase();
+    let servicioSeleccionado = prompt(`Ingresa el servicio que se requiere sin acentos o escribe 'listo' para finalizar.
+
+Los servicios disponibles son:
+- Limpieza
+- Extracción
+- Endodoncia
+- Blanqueamiento
+- Carillas`).toLowerCase();
 
     if (servicioSeleccionado === "listo") {
         break;
     }
-    if (servicioSeleccionado === "limpieza") {
-        costoServicio = limpieza;
-        costoTotal = costoTotal + costoServicio;
-    } else if (servicioSeleccionado === "extraccion") {
-        costoServicio = extraccion;
-        costoTotal = costoTotal + costoServicio;
-    } else if (servicioSeleccionado === "endodoncia") {
-        costoServicio = endodoncia;
-        costoTotal = costoTotal + costoServicio;
-    } else if (servicioSeleccionado === "blanqueamiento") {
-        costoServicio = blanqueamiento;
-        costoTotal = costoTotal + costoServicio;
-    } else {
-        alert("Lo siento, el servicio ingresado no está disponible.");
+    //Buscador del servicio seleccionado en el array de servicios dentales
+    const servicioEncontrado = serviciosDentales.find((servicio) => servicio.nombre.toLowerCase() === servicioSeleccionado);
+
+    if (servicioEncontrado) {
+        costoServicio = servicioEncontrado.costo;
+        costoTotal += costoServicio;
+        alert(`Servicio Agregado: ${servicioSeleccionado} - Costo: $${costoServicio}`);
+    }
+    else {
+        alert("Lo siento mucho, el servicio encontrado no esta disponible");
         continue;
     }
-    alert(`Servicio agregado: ${servicioSeleccionado} Costo: $${costoServicio}`);
 }
+
 alert(`El costo total de los servicios seleccionados es: $${costoTotal}`);
 
 
