@@ -1,5 +1,6 @@
 let costoTotal = 0;
 let pagoConTarjeta = 0;
+//Creacion de array de objetos en lugar de tenerlos como const
 const serviciosDentales = [
     { nombre: "Limpieza", costo: 150 },
     { nombre: "Extraccion", costo: 500 },
