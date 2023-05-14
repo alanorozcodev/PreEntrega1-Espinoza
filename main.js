@@ -1,9 +1,12 @@
 let costoTotal = 0;
 let pagoConTarjeta = 0;
-const limpieza = 150;
-const extraccion = 300;
-const endodoncia = 500;
-const blanqueamiento = 120;
+const seriviciosDentales = [
+    {nombre: "Limpieza", costo: 150},
+    {nombre: "Extraccion", costo: 500},
+    {nombre: "Endodoncia", costo: 1500},
+    {nombre: "Blanquemiento", costo: 450},
+    {nombre: "Carillas", costo: 3000},
+];
 const sumaConTarjeta = (a, b) => a + b;
 const comision = x => x * .04;
 let costoServicio = 0;
@@ -14,7 +17,8 @@ Los servicios disponibles son:
 - Limpieza
 - Extracción
 - Endodoncia
-- Blanqueamiento`);
+- Blanqueamiento
+- Carillas`);
 
 while (true) {
     let servicioSeleccionado = prompt("Ingresa el servicio que necesitas sin acentos (o escribe 'listo' para finalizar):").toLowerCase();
