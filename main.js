@@ -1,13 +1,12 @@
 let costoTotal = 0;
 let pagoConTarjeta = 0;
-//Creacion de array de objetos en lugar de tenerlos como const
+//Creacion de array de objetos en lugar de tenerlos como let
 const serviciosDentales = [
     { nombre: "Limpieza", costo: 150 },
     { nombre: "Extraccion", costo: 500 },
     { nombre: "Endodoncia", costo: 1500 },
     { nombre: "Blanqueamiento", costo: 450 },
-    { nombre: "Carillas", costo: 3000 },
-];
+    { nombre: "Carillas", costo: 3000 }];
 const sumaConTarjeta = (a, b) => a + b;
 const comision = x => x * .04;
 let costoServicio = 0;
@@ -21,6 +20,7 @@ Los servicios disponibles son:
 - Blanqueamiento
 - Carillas`);
 
+//Se agregaron los servicios en el prompt para que el usuario pueda tenerlos a la vista a la hora de ingresar el servicio
 while (true) {
     let servicioSeleccionado = prompt(`Ingresa el servicio que se requiere sin acentos o escribe 'listo' para finalizar.
 
@@ -34,7 +34,7 @@ Los servicios disponibles son:
     if (servicioSeleccionado === "listo") {
         break;
     }
-    //Buscador del servicio seleccionado en el array de servicios dentales
+//Buscador del servicio seleccionado en el array de servicios dentales
     const servicioEncontrado = serviciosDentales.find((servicio) => servicio.nombre.toLowerCase() === servicioSeleccionado);
 
     if (servicioEncontrado) {
@@ -49,8 +49,6 @@ Los servicios disponibles son:
 }
 
 alert(`El costo total de los servicios seleccionados es: $${costoTotal}`);
-
-
 
 while (true) {
     pagoConTarjeta = prompt("¿Piensa pagar con efectivo o tarjeta? (El uso de tarjeta tiene una comisión del 4%)").toLowerCase();
